@@ -80,6 +80,10 @@ set -e
 # load system path
 eval "$(/usr/libexec/path_helper -s)"
 
+aws-vault() {
+  "${aws_vault_path:-aws-vault}" "$@"
+}
+
 function fetch(){
     result=$(aws-vault list)
     if [[ $? -ne 0 ]]; then
@@ -163,6 +167,10 @@ export AWS_VAULT_PROMPT="${AWS_VAULT_PROMPT:-osascript}"
 # load system path
 eval "$(/usr/libexec/path_helper -s)"
 
+aws-vault() {
+  "${aws_vault_path:-aws-vault}" "$@"
+}
+					
 firefox-bin() {
   "${firefox_path:-/Applications/Firefox.app/Contents/MacOS/firefox}" "$@"
 }
